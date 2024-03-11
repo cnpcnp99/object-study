@@ -15,7 +15,6 @@ public class TicketSeller {
      * @param audience 티켓을 판매할 대상
      */
     public void sellTo(Audience audience) {
-        Long paidFee = audience.buy(ticketOffice.getTicket());
-        ticketOffice.plusAmount(paidFee);
+        ticketOffice.sellTicketTo(audience);
     }
 }

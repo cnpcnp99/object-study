@@ -15,15 +15,25 @@ public class TicketOffice {
         this.tickets.addAll(List.of(tickets));
     }
 
-    public Ticket getTicket() {
+    /**
+     * 티켓을 판매하는 메소드
+     *
+     * @param audience 판매 대상
+     */
+    public void sellTicketTo(Audience audience) {
+        Long paidFee = audience.buy(getTicket());
+        plusAmount(paidFee);
+    }
+
+    private Ticket getTicket() {
         return tickets.remove(0);
     }
 
-    public void minusAmount(Long amount) {
+    private void minusAmount(Long amount) {
         this.amount -= amount;
     }
 
-    public void plusAmount(Long amount) {
+    private void plusAmount(Long amount) {
         this.amount += amount;
     }
 }
