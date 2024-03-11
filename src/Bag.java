@@ -29,12 +29,21 @@ public class Bag {
         this.invitation = invitation;
     }
 
+    public Long hold(Ticket ticket) {
+        setTicket(ticket);
+        if (hasInvitation()) {
+            return 0L;
+        }
+        minusAmount(ticket.getFee());
+        return ticket.getFee();
+    }
+
     /**
      * 초대장이 있는지 여부 체크하는 메소드
      *
      * @return true: 초대장 보유 / false: 초대장 미보유
      */
-    public boolean hasInvitation() {
+    private boolean hasInvitation() {
         return invitation != null;
     }
 
@@ -47,15 +56,15 @@ public class Bag {
         return ticket != null;
     }
 
-    public void setTicket(Ticket ticket) {
+    private void setTicket(Ticket ticket) {
         this.ticket = ticket;
     }
 
-    public void minusAmount(Long amount) {
+    private void minusAmount(Long amount) {
         this.amount -= amount;
     }
 
-    public void plusAmount(Long amount) {
+    private void plusAmount(Long amount) {
         this.amount += amount;
     }
 }
