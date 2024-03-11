@@ -16,12 +16,6 @@ public class Audience {
      * @return 구매하면서 지불한 금액
      */
     public Long buy(Ticket ticket) {
-        if (bag.hasInvitation()) {
-            bag.setTicket(ticket);
-            return 0L;
-        }
-        bag.minusAmount(ticket.getFee());
-        bag.setTicket(ticket);
-        return ticket.getFee();
+        return bag.hold(ticket);
     }
 }
