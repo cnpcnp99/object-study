@@ -9,15 +9,13 @@ public class TicketSeller {
         this.ticketOffice = ticketOffice;
     }
 
+    /**
+     * 티켓 셀러가 관객에게 티켓을 판매하는 메소드
+     *
+     * @param audience 티켓을 판매할 대상
+     */
     public void sellTo(Audience audience) {
-        if (audience.getBag().hasInvitation()) {
-            Ticket ticket = ticketOffice.getTicket();
-            audience.getBag().setTicket(ticket);
-            return;
-        }
-        Ticket ticket = ticketOffice.getTicket();
-        audience.getBag().minusAmount(ticket.getFee());
-        ticketOffice.plusAmount(ticket.getFee());
-        audience.getBag().setTicket(ticket);
+        Long paidFee = audience.buy(ticketOffice.getTicket());
+        ticketOffice.plusAmount(paidFee);
     }
 }

@@ -9,7 +9,19 @@ public class Audience {
         this.bag = bag;
     }
 
-    public Bag getBag() {
-        return bag;
+    /**
+     * 티켓을 구매하는 메소드(초대권이 있다면 무료로 티켓을 구매하게 됨)
+     *
+     * @param ticket 구매할 티켓
+     * @return 구매하면서 지불한 금액
+     */
+    public Long buy(Ticket ticket) {
+        if (bag.hasInvitation()) {
+            bag.setTicket(ticket);
+            return 0L;
+        }
+        bag.minusAmount(ticket.getFee());
+        bag.setTicket(ticket);
+        return ticket.getFee();
     }
 }
