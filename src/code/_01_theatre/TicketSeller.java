@@ -1,3 +1,5 @@
+package code._01_theatre;
+
 /**
  * 티켓 판매원 클래스
  */

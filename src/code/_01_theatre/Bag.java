@@ -1,3 +1,5 @@
+package code._01_theatre;
+
 /**
  * 가방 클래스
  */

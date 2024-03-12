@@ -1,3 +1,5 @@
+package code._01_theatre;
+
 import java.util.ArrayList;
 import java.util.List;
 

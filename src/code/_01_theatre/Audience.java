@@ -1,3 +1,5 @@
+package code._01_theatre;
+
 /**
  * 관람객 클래스
  */

@@ -1,3 +1,5 @@
+package code._01_theatre;
+
 public class Theater {
 
     private TicketSeller ticketSeller;
